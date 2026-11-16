@@ -1,0 +1,15 @@
+{
+  "might": { "name": "Сила", "desc": "Урон +12%", "icon": "sword", "color": "#e05a4a", "w": 10, "stats": { "damage": 0.12 } },
+  "haste": { "name": "Проворство", "desc": "Скорость атаки +12%", "icon": "feather", "color": "#e0c060", "w": 10, "stats": { "atkSpeed": 0.12 } },
+  "vigor": { "name": "Живучесть", "desc": "Макс. здоровье +20 и лечение 20", "icon": "heart", "color": "#e8404a", "w": 10, "stats": { "maxHp": 20 }, "heal": 20 },
+  "swift": { "name": "Лёгкий шаг", "desc": "Скорость передвижения +10%", "icon": "boots", "color": "#6ad0e0", "w": 8, "stats": { "moveSpeed": 0.1 } },
+  "precision": { "name": "Точность", "desc": "Шанс крита +7%", "icon": "eye", "color": "#f0a030", "w": 8, "stats": { "crit": 0.07 } },
+  "ferocity": { "name": "Свирепость", "desc": "Урон крита +35%", "icon": "skull", "color": "#c04060", "w": 6, "stats": { "critMult": 0.35 } },
+  "focus": { "name": "Сосредоточение", "desc": "Перезарядка способности -15%", "icon": "hourglass", "color": "#9a8ae0", "w": 7, "stats": { "cdr": 0.15 } },
+  "fortitude": { "name": "Стойкость", "desc": "Получаемый урон -6%", "icon": "shield", "color": "#8a9ab0", "w": 7, "stats": { "armor": 0.06 } },
+  "greed": { "name": "Чутьё на золото", "desc": "Золото +30%", "icon": "crown", "color": "#ffd24a", "w": 5, "stats": { "gold": 0.3 } },
+  "respite": { "name": "Передышка", "desc": "Восстановить 60% здоровья", "icon": "potion", "color": "#e05a6a", "w": 6, "heal": "60%" },
+  "volley": { "name": "Залп", "desc": "+1 кинжал в каждом броске", "icon": "dagger", "color": "#9af0b0", "w": 8, "class": "ranger", "stats": { "extraProj": 1 } },
+  "wide_arc": { "name": "Широкий замах", "desc": "Радиус удара +25%", "icon": "sword", "color": "#cfd8e4", "w": 8, "class": "guardian", "stats": { "area": 0.25 } },
+  "arcane_pierce": { "name": "Пронзающая магия", "desc": "Снаряды пробивают +1 врага", "icon": "orb", "color": "#b884ff", "w": 8, "class": "mage", "stats": { "pierce": 1 } }
+}

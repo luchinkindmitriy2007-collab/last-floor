@@ -1,0 +1,78 @@
+{
+  "_doc": "Главы прохождения. Этажи главы: (id-1)*5+1 … id*5. Последний этаж главы — арена босса. enemyPool: w — вес, from — с какого этажа главы (1–5) появляется. mix — доля врагов прошлой главы.",
+  "chapters": [
+    {
+      "id": 1, "name": "Забытые руины", "biome": "ruins", "boss": "gatekeeper",
+      "minibosses": ["golem_warden", "rat_king"],
+      "intro": "Старые камни помнят первых искателей.",
+      "enemyPool": [
+        { "id": "slime", "w": 20, "from": 1 }, { "id": "rat", "w": 22, "from": 1 }, { "id": "bat", "w": 14, "from": 1 },
+        { "id": "skeleton", "w": 18, "from": 1 }, { "id": "archer", "w": 14, "from": 2 }, { "id": "statue", "w": 9, "from": 2 },
+        { "id": "golem", "w": 7, "from": 3 }, { "id": "sentry", "w": 7, "from": 3 }, { "id": "slime_big", "w": 6, "from": 4 }
+      ]
+    },
+    {
+      "id": 2, "name": "Огненные глубины", "biome": "fire", "boss": "ash_lord",
+      "minibosses": ["inferno_brute"],
+      "intro": "Под руинами течёт расплавленный камень.",
+      "mix": 0.15,
+      "enemyPool": [
+        { "id": "fire_slime", "w": 20, "from": 1 }, { "id": "demon", "w": 18, "from": 1 }, { "id": "fire_beetle", "w": 16, "from": 1 },
+        { "id": "imp", "w": 12, "from": 1 }, { "id": "ash_mage", "w": 10, "from": 2 }, { "id": "lava_golem", "w": 8, "from": 3 }
+      ]
+    },
+    {
+      "id": 3, "name": "Ледяное королевство", "biome": "ice", "boss": "ice_queen",
+      "minibosses": ["wolf_alpha"],
+      "intro": "Здесь время замёрзло вместе со стражами.",
+      "mix": 0.15,
+      "enemyPool": [
+        { "id": "ice_wolf", "w": 20, "from": 1 }, { "id": "snow_ghost", "w": 15, "from": 1 }, { "id": "ice_mage", "w": 14, "from": 1 },
+        { "id": "frozen_knight", "w": 12, "from": 2 }, { "id": "ice_elemental", "w": 10, "from": 2 }, { "id": "ice_shard", "w": 8, "from": 1 }
+      ]
+    },
+    {
+      "id": 4, "name": "Затерянный некрополь", "biome": "necro", "boss": "king_dead",
+      "minibosses": ["executioner"],
+      "intro": "Мёртвые башни не спят. Они ждут.",
+      "mix": 0.15,
+      "enemyPool": [
+        { "id": "zombie", "w": 18, "from": 1 }, { "id": "cursed_soul", "w": 16, "from": 1 }, { "id": "skeleton_knight", "w": 14, "from": 1 },
+        { "id": "reaper", "w": 12, "from": 2 }, { "id": "necromancer", "w": 10, "from": 2 }, { "id": "skeleton", "w": 8, "from": 1 }
+      ]
+    },
+    {
+      "id": 5, "name": "Кристальный лабиринт", "biome": "crystal", "boss": "crystal_guardian",
+      "minibosses": ["brood_mother"],
+      "intro": "Стены отражают того, кем ты мог бы стать.",
+      "mix": 0.15,
+      "enemyPool": [
+        { "id": "crystal_spider", "w": 18, "from": 1 }, { "id": "magic_sphere", "w": 16, "from": 1 }, { "id": "blinker", "w": 15, "from": 1 },
+        { "id": "crystal_golem", "w": 12, "from": 2 }, { "id": "magic_guardian", "w": 10, "from": 2 }
+      ]
+    },
+    {
+      "id": 6, "name": "Сердце башни", "biome": "heart", "boss": "tower_heart",
+      "minibosses": ["void_knight"],
+      "intro": "Башня бьётся, как живая.",
+      "mix": 0.2,
+      "enemyPool": [
+        { "id": "shadow", "w": 18, "from": 1 }, { "id": "elite_knight", "w": 14, "from": 1 }, { "id": "twisted", "w": 12, "from": 1 },
+        { "id": "soul_devourer", "w": 10, "from": 2 }, { "id": "ancient_guardian", "w": 9, "from": 2 }
+      ]
+    }
+  ],
+  "difficulty": {
+    "hpPerFloor": 0.035, "dmgPerFloor": 0.02,
+    "eliteBase": 0.03, "elitePerFloor": 0.008, "eliteMax": 0.28,
+    "budgetBase": 4, "budgetPerFloor": 0.75, "budgetPerChapter": 2.5,
+    "waves": [[1, 2], [1, 2], [2, 2], [2, 3], [2, 3], [2, 3]],
+    "rooms": [[7, 9], [8, 10], [9, 11], [9, 12], [10, 12], [10, 13]],
+    "minibossChance": [0.35, 0.4, 0.45, 0.5, 0.5, 0.55],
+    "shopChance": 0.75, "restChance": 0.45, "eventChance": [0.85, 0.5], "challengeChance": [0.15, 0.3, 0.45, 0.55, 0.65, 0.7],
+    "secretChance": [0.55, 0.6, 0.65, 0.7, 0.75, 0.8],
+    "sealShare": 0.6, "loops": 0.4,
+    "maxPerWave": { "support": [0, 0, 1, 1, 2, 2], "summoner": [1, 1, 1, 1, 2, 2], "ranged": [2, 2, 3, 3, 3, 4] }
+  },
+  "endless": { "hpPerFloor": 0.06, "dmgPerFloor": 0.03 }
+}

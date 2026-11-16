@@ -1,0 +1,219 @@
+{
+  "_doc": "Атаки собираются из библиотеки src/systems/ai/BossAI.js по полю type. Фаза действует, пока доля HP > until. intro: rise|descend|materialize|awaken; death: crumble|shatter|dissolve|burst.",
+
+  "gatekeeper": {
+    "name": "Хранитель руин", "title": "Страж первого порога", "texture": "boss_gatekeeper", "frameW": 34, "chapter": 1,
+    "lore": "Он стоит у ворот руин с тех пор, как башня впервые сменила форму. Говорят, он помнит каждого, кто прошёл мимо.",
+    "hp": 900, "damage": 18, "speed": 34, "xp": 120, "gold": [60, 80], "body": [22, 12, 6, 17], "color": "#7cff8a", "rageColor": "#ff7a4a",
+    "intro": "rise", "death": "crumble", "projFrame": 1, "rageFrame": 2,
+    "attacks": {
+      "slam": { "type": "slam", "windup": 0.9, "radius": 70 },
+      "slam2": { "type": "slam", "windup": 0.8, "radius": 70, "rings": 2 },
+      "charge": { "type": "charge", "windup": 0.8, "speed": 250, "time": 0.9, "debris": 4 },
+      "volley": { "type": "volley", "windup": 0.6, "count": 5, "spread": 0.7, "speed": 120, "waves": 3 },
+      "spiral": { "type": "spiral", "windup": 0.7, "arms": 4, "duration": 2.6, "rate": 0.12, "speed": 95, "frame": 2 },
+      "summon": { "type": "summon", "windup": 0.8, "enemy": "rat", "count": 3, "cap": 5 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["slam", "charge", "volley"], "pause": [1.1, 1.6] },
+      { "until": 0, "attacks": ["slam2", "charge", "spiral", "summon", "volley"], "pause": [0.7, 1.1], "speedMult": 1.3 }
+    ]
+  },
+
+  "ash_lord": {
+    "name": "Повелитель пепла", "title": "Владыка огненных глубин", "texture": "boss_ash_lord", "frameW": 32, "chapter": 2,
+    "lore": "Он сжёг собственное имя, чтобы стать огнём. Пепел на полу — всё, что осталось от его гостей.",
+    "hp": 1500, "damage": 20, "speed": 38, "xp": 200, "gold": [80, 100], "body": [20, 10, 6, 17], "color": "#ff8a3a", "rageColor": "#ffe08a",
+    "intro": "rise", "death": "burst", "projFrame": 2,
+    "attacks": {
+      "fireballs": { "type": "volley", "windup": 0.55, "count": 5, "spread": 0.9, "speed": 135, "waves": 3, "frame": 2 },
+      "meteors": { "type": "rain", "windup": 0.6, "count": 7, "radius": 22, "delay": 0.8, "interval": 0.14, "hazard": "fire", "color": "#ff8a3a", "onPlayer": 2 },
+      "flamewave": { "type": "ring", "windup": 0.7, "count": 28, "speed": 85, "waves": 2, "interval": 0.55, "gap": 4, "frame": 2 },
+      "dash": { "type": "teleport", "fade": 0.35, "appear": 0.5, "then": "flamewave" },
+      "inferno": { "type": "spiral", "windup": 0.7, "arms": 5, "duration": 2.8, "rate": 0.1, "speed": 105, "frame": 2, "turn": -0.21 },
+      "imps": { "type": "summon", "windup": 0.8, "enemy": "imp", "count": 3, "cap": 5 },
+      "eruption": { "type": "nova", "windup": 0.9, "radius": 80, "hazard": "fire" }
+    },
+    "phases": [
+      { "until": 0.55, "attacks": ["fireballs", "meteors", "flamewave", "eruption"], "pause": [1.0, 1.4] },
+      { "until": 0, "attacks": ["dash", "inferno", "meteors", "imps", "fireballs", "eruption"], "pause": [0.6, 1.0], "speedMult": 1.3 }
+    ]
+  },
+
+  "ice_queen": {
+    "name": "Ледяная королева", "title": "Хозяйка вечной зимы", "texture": "boss_ice_queen", "frameW": 32, "chapter": 3,
+    "lore": "Она загадала, чтобы мгновение длилось вечно. Башня исполнила — и заморозила её вместе с ним.",
+    "hp": 2100, "damage": 22, "speed": 40, "xp": 280, "gold": [100, 120], "body": [18, 10, 7, 16], "color": "#7ad8ff", "rageColor": "#d8b8ff",
+    "intro": "materialize", "death": "shatter", "projFrame": 3,
+    "attacks": {
+      "shards": { "type": "volley", "windup": 0.5, "count": 7, "spread": 1.0, "speed": 140, "waves": 2, "frame": 3, "effect": "slow" },
+      "spikes": { "type": "spikes", "windup": 0.4, "count": 9, "step": 26, "radius": 13, "lines": 3, "color": "#bff4ff", "hazard": "ice" },
+      "frost": { "type": "nova", "windup": 1.0, "radius": 95, "hazard": "ice" },
+      "blink": { "type": "teleport", "fade": 0.4, "appear": 0.5, "then": "shards" },
+      "blizzard": { "type": "spiral", "windup": 0.7, "arms": 3, "duration": 3.0, "rate": 0.09, "speed": 100, "frame": 3, "turn": 0.17, "effect": "slow" },
+      "wolves": { "type": "summon", "windup": 0.9, "enemy": "ice_wolf", "count": 2, "cap": 3 },
+      "hail": { "type": "rain", "windup": 0.5, "count": 9, "radius": 18, "delay": 0.85, "interval": 0.11, "hazard": "ice", "color": "#bff4ff", "onPlayer": 3 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["shards", "spikes", "frost", "blink"], "pause": [0.9, 1.3] },
+      { "until": 0, "attacks": ["blizzard", "spikes", "hail", "wolves", "blink", "frost"], "pause": [0.6, 0.9], "speedMult": 1.25 }
+    ]
+  },
+
+  "king_dead": {
+    "name": "Король мёртвых", "title": "Владыка некрополя", "texture": "boss_king_dead", "frameW": 32, "chapter": 4,
+    "lore": "Первый правитель, поднявшийся на вершину. Его желание — править вечно. Теперь он правит прахом.",
+    "hp": 2800, "damage": 24, "speed": 36, "xp": 360, "gold": [120, 140], "body": [20, 10, 6, 15], "color": "#b884ff", "rageColor": "#8aff6a",
+    "intro": "rise", "death": "dissolve", "projFrame": 6,
+    "attacks": {
+      "souls": { "type": "volley", "windup": 0.6, "count": 4, "spread": 1.2, "speed": 90, "waves": 3, "frame": 6, "homing": 1.4 },
+      "bonespikes": { "type": "spikes", "windup": 0.45, "count": 10, "step": 24, "radius": 12, "lines": 1, "color": "#e8e0c8" },
+      "raise": { "type": "summon", "windup": 1.0, "enemy": "skeleton", "count": 3, "cap": 5 },
+      "raise2": { "type": "summon", "windup": 0.9, "enemy": "skeleton_knight", "count": 1, "cap": 3 },
+      "sweep": { "type": "slam", "windup": 0.85, "radius": 80 },
+      "bonerain": { "type": "rain", "windup": 0.5, "count": 10, "radius": 16, "delay": 0.8, "interval": 0.1, "hazard": "curse", "color": "#b884ff", "onPlayer": 3 },
+      "crown": { "type": "ring", "windup": 0.6, "count": 24, "speed": 80, "waves": 3, "interval": 0.45, "gap": 3, "frame": 6 },
+      "phase": { "type": "teleport", "fade": 0.5, "appear": 0.5, "then": "crown" }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["souls", "bonespikes", "raise", "sweep"], "pause": [1.0, 1.4] },
+      { "until": 0, "attacks": ["bonerain", "crown", "raise2", "phase", "souls", "bonespikes"], "pause": [0.6, 1.0], "speedMult": 1.25 }
+    ]
+  },
+
+  "crystal_guardian": {
+    "name": "Кристальный страж", "title": "Око лабиринта", "texture": "boss_crystal_guardian", "frameW": 32, "chapter": 5,
+    "lore": "Лабиринт видит этим глазом. Каждый луч — один из путей, которых ты не выбрал.",
+    "hp": 3000, "damage": 26, "speed": 30, "xp": 450, "gold": [140, 160], "body": [16, 12, 8, 14], "color": "#ff8ad8", "rageColor": "#ffff8a",
+    "intro": "descend", "death": "shatter", "projFrame": 7, "flying": true,
+    "attacks": {
+      "laser": { "type": "beam", "windup": 0.9, "count": 1, "duration": 0.7, "width": 10, "aim": true },
+      "prism": { "type": "ring", "windup": 0.6, "count": 16, "speed": 110, "waves": 3, "interval": 0.35, "frame": 7, "offset": 0.2 },
+      "spheres": { "type": "summon", "windup": 0.8, "enemy": "magic_sphere", "count": 2, "cap": 3 },
+      "refract": { "type": "teleport", "fade": 0.35, "appear": 0.45, "then": "laser" },
+      "spin": { "type": "beam", "windup": 1.0, "count": 2, "duration": 3.2, "width": 9, "rotate": 0.8 },
+      "spin3": { "type": "beam", "windup": 1.0, "count": 3, "duration": 3.4, "width": 9, "rotate": -0.75 },
+      "shower": { "type": "rain", "windup": 0.5, "count": 10, "radius": 18, "delay": 0.8, "interval": 0.1, "hazard": "crystal", "color": "#ff8ad8", "onPlayer": 3 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["laser", "prism", "spheres", "refract"], "pause": [0.9, 1.3] },
+      { "until": 0, "attacks": ["spin", "spin3", "shower", "refract", "prism"], "pause": [0.6, 0.9], "speedMult": 1.2 }
+    ]
+  },
+
+  "tower_heart": {
+    "name": "Сердце башни", "title": "Источник всех желаний", "texture": "boss_tower_heart", "frameW": 32, "chapter": 6, "final": true,
+    "lore": "Источник на вершине — не дар, а голод. Каждое исполненное желание становится новым этажом.",
+    "hp": 4300, "damage": 28, "speed": 0, "xp": 0, "gold": [200, 250], "body": [26, 14, 3, 10], "color": "#ff4a6a", "rageColor": "#ff4af0",
+    "intro": "awaken", "death": "burst", "projFrame": 8, "stationary": true, "pulse": true,
+    "attacks": {
+      "pulse": { "type": "ring", "windup": 0.5, "count": 20, "speed": 90, "waves": 3, "interval": 0.5, "frame": 8, "offset": 0.16 },
+      "veins": { "type": "spiral", "windup": 0.6, "arms": 4, "duration": 3.0, "rate": 0.11, "speed": 100, "frame": 8, "turn": 0.19 },
+      "shadows": { "type": "summon", "windup": 0.8, "enemy": "shadow", "count": 2, "cap": 3 },
+      "grasp": { "type": "rain", "windup": 0.4, "count": 8, "radius": 20, "delay": 0.75, "interval": 0.12, "hazard": "void", "color": "#ff4a6a", "onPlayer": 4 },
+      "beams": { "type": "beam", "windup": 1.0, "count": 3, "duration": 3.4, "width": 10, "rotate": 0.7 },
+      "beams4": { "type": "beam", "windup": 0.9, "count": 4, "duration": 3.8, "width": 10, "rotate": -0.85 },
+      "pull": { "type": "pull", "duration": 2.2, "force": 70, "then": "pulse" },
+      "storm": { "type": "spiral", "windup": 0.5, "arms": 6, "duration": 3.2, "rate": 0.09, "speed": 115, "frame": 8, "turn": -0.17 },
+      "gapring": { "type": "ring", "windup": 0.5, "count": 36, "speed": 95, "waves": 4, "interval": 0.5, "gap": 5, "frame": 6 },
+      "elite": { "type": "summon", "windup": 0.8, "enemy": "elite_knight", "count": 1, "cap": 2 }
+    },
+    "phases": [
+      { "until": 0.66, "attacks": ["pulse", "veins", "shadows", "grasp"], "pause": [0.9, 1.3] },
+      { "until": 0.33, "attacks": ["beams", "grasp", "pull", "pulse", "shadows"], "pause": [0.7, 1.0] },
+      { "until": 0, "attacks": ["beams4", "storm", "gapring", "grasp", "elite", "pull"], "pause": [0.4, 0.7] }
+    ]
+  },
+
+  "rat_king": {
+    "name": "Крысиный король", "title": "Мини-босс", "texture": "mb_rat_king", "frameW": 16, "scale": 2, "minor": true, "chapter": 1,
+    "lore": "Сплёл хвосты своих подданных в корону. Командует стаей и бросается сам.",
+    "hp": 280, "damage": 14, "speed": 60, "xp": 40, "gold": [20, 30], "body": [10, 5, 0, 6], "color": "#ffd04a", "rageColor": "#ff4a4a",
+    "intro": "rise", "death": "burst", "projFrame": 1, "turnToFace": true,
+    "attacks": {
+      "bites": { "type": "dashChain", "count": 3, "windup": 0.35, "speed": 260, "time": 0.22 },
+      "swarm": { "type": "summon", "windup": 0.7, "enemy": "rat", "count": 4, "cap": 6 },
+      "squeal": { "type": "ring", "windup": 0.6, "count": 12, "speed": 90, "waves": 1, "frame": 1 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["bites", "swarm", "squeal"], "pause": [0.9, 1.3] },
+      { "until": 0, "attacks": ["bites", "swarm", "squeal", "bites"], "pause": [0.6, 0.9], "speedMult": 1.3 }
+    ]
+  },
+  "inferno_brute": {
+    "name": "Пламенный палач", "title": "Мини-босс", "texture": "mb_inferno_brute", "frameW": 16, "scale": 2, "minor": true, "chapter": 2,
+    "lore": "Демон-надзиратель глубин. Таранит, оставляя за собой огненную дорогу.",
+    "hp": 520, "damage": 18, "speed": 50, "xp": 70, "gold": [30, 40], "body": [9, 6, 0, 5], "color": "#ff8a3a", "rageColor": "#ffe08a",
+    "intro": "rise", "death": "burst", "projFrame": 2, "turnToFace": true,
+    "attacks": {
+      "charge": { "type": "charge", "windup": 0.7, "speed": 260, "time": 0.8, "trail": "fire" },
+      "slam": { "type": "nova", "windup": 0.8, "radius": 60, "hazard": "fire" },
+      "fireballs": { "type": "volley", "windup": 0.5, "count": 3, "spread": 0.5, "speed": 140, "waves": 3, "frame": 2 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["charge", "slam", "fireballs"], "pause": [0.9, 1.3] },
+      { "until": 0, "attacks": ["charge", "slam", "fireballs", "charge"], "pause": [0.6, 0.9], "speedMult": 1.3 }
+    ]
+  },
+  "wolf_alpha": {
+    "name": "Вожак стаи", "title": "Мини-босс", "texture": "mb_wolf_alpha", "frameW": 16, "scale": 2, "minor": true, "chapter": 3,
+    "lore": "Белый волк с рваным ухом. Воет — и стая отвечает.",
+    "hp": 720, "damage": 20, "speed": 70, "xp": 90, "gold": [35, 45], "body": [12, 6, 0, 6], "color": "#7ad8ff", "rageColor": "#ff4a4a",
+    "intro": "rise", "death": "burst", "projFrame": 3, "turnToFace": true,
+    "attacks": {
+      "pounce": { "type": "dashChain", "count": 3, "windup": 0.3, "speed": 290, "time": 0.22 },
+      "howl": { "type": "summon", "windup": 0.9, "enemy": "ice_wolf", "count": 2, "cap": 3 },
+      "breath": { "type": "volley", "windup": 0.6, "count": 9, "spread": 0.8, "speed": 150, "waves": 2, "frame": 3, "effect": "slow" }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["pounce", "breath", "howl"], "pause": [0.8, 1.2] },
+      { "until": 0, "attacks": ["pounce", "breath", "howl", "pounce"], "pause": [0.5, 0.8], "speedMult": 1.25 }
+    ]
+  },
+  "executioner": {
+    "name": "Палач некрополя", "title": "Мини-босс", "texture": "mb_executioner", "frameW": 16, "scale": 2, "minor": true, "chapter": 4,
+    "lore": "Его топор помнит каждую казнь. Вращается вихрем и призывает души казнённых.",
+    "hp": 950, "damage": 24, "speed": 44, "xp": 110, "gold": [40, 50], "body": [10, 6, 0, 5], "color": "#c8c8d0", "rageColor": "#8aff6a",
+    "intro": "rise", "death": "dissolve", "projFrame": 6, "turnToFace": true,
+    "attacks": {
+      "whirl": { "type": "spiral", "windup": 0.6, "arms": 3, "duration": 2.2, "rate": 0.1, "speed": 110, "frame": 6, "chase": 40 },
+      "chop": { "type": "slam", "windup": 0.8, "radius": 58 },
+      "souls": { "type": "summon", "windup": 0.8, "enemy": "cursed_soul", "count": 3, "cap": 4 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["whirl", "chop", "souls"], "pause": [0.9, 1.2] },
+      { "until": 0, "attacks": ["whirl", "chop", "souls", "chop"], "pause": [0.5, 0.8], "speedMult": 1.3 }
+    ]
+  },
+  "brood_mother": {
+    "name": "Кристальная матка", "title": "Мини-босс", "texture": "mb_brood_mother", "frameW": 16, "scale": 2.2, "minor": true, "chapter": 5,
+    "lore": "Мать всех кристальных пауков. Плетёт липкую паутину и откладывает живые друзы.",
+    "hp": 1200, "damage": 24, "speed": 46, "xp": 130, "gold": [45, 55], "body": [11, 7, 0, 4], "color": "#ff8ad8", "rageColor": "#ffffff",
+    "intro": "descend", "death": "shatter", "projFrame": 7,
+    "attacks": {
+      "leap": { "type": "dashChain", "count": 2, "windup": 0.45, "speed": 260, "time": 0.3, "landRing": 10 },
+      "web": { "type": "volley", "windup": 0.5, "count": 5, "spread": 0.9, "speed": 120, "waves": 2, "frame": 7, "effect": "slow" },
+      "eggs": { "type": "summon", "windup": 0.9, "enemy": "crystal_spider", "count": 2, "cap": 4 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["leap", "web", "eggs"], "pause": [0.9, 1.2] },
+      { "until": 0, "attacks": ["leap", "web", "eggs", "leap"], "pause": [0.5, 0.8], "speedMult": 1.2 }
+    ]
+  },
+  "void_knight": {
+    "name": "Рыцарь пустоты", "title": "Мини-босс", "texture": "mb_void_knight", "frameW": 16, "scale": 2, "minor": true, "chapter": 6,
+    "lore": "Бывший герой, поднявшийся почти до вершины. Пустота подарила ему шаг сквозь пространство.",
+    "hp": 1600, "damage": 28, "speed": 50, "xp": 160, "gold": [55, 70], "body": [10, 6, 0, 5], "color": "#b884ff", "rageColor": "#ff4a6a",
+    "intro": "materialize", "death": "dissolve", "projFrame": 8, "turnToFace": true,
+    "attacks": {
+      "step": { "type": "teleport", "fade": 0.3, "appear": 0.45, "near": true, "then": "cleave" },
+      "cleave": { "type": "slam", "windup": 0.55, "radius": 50 },
+      "lance": { "type": "beam", "windup": 0.8, "count": 1, "duration": 0.5, "width": 12, "aim": true },
+      "cross": { "type": "ring", "windup": 0.5, "count": 8, "speed": 140, "waves": 3, "interval": 0.3, "frame": 8, "offset": 0.39 }
+    },
+    "phases": [
+      { "until": 0.5, "attacks": ["step", "lance", "cross"], "pause": [0.8, 1.1] },
+      { "until": 0, "attacks": ["step", "lance", "cross", "step"], "pause": [0.4, 0.7], "speedMult": 1.2 }
+    ]
+  }
+}

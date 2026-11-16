@@ -1,0 +1,50 @@
+{
+  "guardian": {
+    "id": "guardian",
+    "name": "Страж",
+    "role": "Ближний бой, защита",
+    "desc": "Сбалансированный воин в латах. Широкий удар мечом и барьер, отражающий врагов ударной волной.",
+    "texture": "hero_guardian",
+    "weapon": "wpn_sword",
+    "stats": { "maxHp": 120, "moveSpeed": 76, "damage": 15, "attackCd": 0.42, "crit": 0.05, "critMult": 1.6, "armor": 0.1 },
+    "attack": { "type": "melee", "range": 28, "arc": 120, "knockback": 120 },
+    "ability": {
+      "id": "barrier", "name": "Барьер", "cd": 6,
+      "desc": "1.5 с снижает урон на 70%, затем ударная волна отбрасывает врагов.",
+      "duration": 1.5, "reduce": 0.7, "radius": 52, "dmgMult": 1.6
+    },
+    "rating": { "attack": 3, "defense": 5, "speed": 2 }
+  },
+  "ranger": {
+    "id": "ranger",
+    "name": "Следопыт",
+    "role": "Дальний бой, скорость",
+    "desc": "Быстрый разведчик. Метает кинжалы очередями и уходит от атак перекатом.",
+    "texture": "hero_ranger",
+    "weapon": "wpn_dagger",
+    "stats": { "maxHp": 90, "moveSpeed": 94, "damage": 7, "attackCd": 0.24, "crit": 0.1, "critMult": 1.8, "armor": 0 },
+    "attack": { "type": "throw", "speed": 270, "projFrame": 4, "spread": 4, "knockback": 40, "range": 220 },
+    "ability": {
+      "id": "roll", "name": "Перекат", "cd": 1.4,
+      "desc": "Рывок с неуязвимостью. Сквозь врагов и снаряды.",
+      "duration": 0.3, "speedMult": 2.8
+    },
+    "rating": { "attack": 3, "defense": 2, "speed": 5 }
+  },
+  "mage": {
+    "id": "mage",
+    "name": "Маг",
+    "role": "Магия, контроль",
+    "desc": "Мощные самонаводящиеся снаряды и взрыв чистой энергии вокруг себя.",
+    "texture": "hero_mage",
+    "weapon": "wpn_staff",
+    "stats": { "maxHp": 78, "moveSpeed": 80, "damage": 17, "attackCd": 0.5, "crit": 0.05, "critMult": 1.7, "armor": 0 },
+    "attack": { "type": "bolt", "speed": 175, "projFrame": 0, "homing": 2.2, "knockback": 70, "range": 260 },
+    "ability": {
+      "id": "nova", "name": "Чародейский взрыв", "cd": 5,
+      "desc": "Волна энергии наносит урон и отбрасывает всех врагов рядом.",
+      "radius": 70, "dmgMult": 2.0
+    },
+    "rating": { "attack": 5, "defense": 1, "speed": 3 }
+  }
+}

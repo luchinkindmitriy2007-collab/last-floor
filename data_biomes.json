@@ -1,0 +1,44 @@
+{
+  "ruins": {
+    "id": "ruins", "name": "Забытые руины", "style": "moss", "music": "ruins", "hazard": null,
+    "ambient": { "color": "#040a08", "alpha": 0.66 }, "lightTint": "#7cff8a",
+    "torch": { "main": "#7cff8a", "light": "#d6ffb0", "dark": "#2f9a4a" },
+    "palette": { "floor": ["#4b4a52", "#47464f", "#504e57"], "mortar": "#24222b", "brick": "#5d5a63", "wallTop": "#2e2c35", "pillar": "#7a7680", "moss": "#3f6b34", "mossLight": "#6ea84a", "pitDeep": "#0b0910", "pitEdge": "#2a2732", "rune": "#5fd07a" },
+    "decor": ["bones", "skull", "rubble", "rubble"], "arena": "arena"
+  },
+  "fire": {
+    "id": "fire", "name": "Огненные глубины", "style": "lava", "music": "fire", "hazard": "fire",
+    "ambient": { "color": "#140604", "alpha": 0.6 }, "lightTint": "#ff8a3a",
+    "torch": { "main": "#ff8a2a", "light": "#ffe08a", "dark": "#c03010" },
+    "palette": { "floor": ["#3e2e2c", "#3a2a28", "#443230"], "mortar": "#1a1012", "brick": "#4e3432", "wallTop": "#24181a", "pillar": "#5e4442", "moss": "#d84a14", "mossLight": "#ffc040", "pitDeep": "#c03010", "pitEdge": "#ff9a2a", "rune": "#ff8a3a" },
+    "decor": ["lavarock", "ashpile", "skull", "lavarock"], "arena": "arena_fire"
+  },
+  "ice": {
+    "id": "ice", "name": "Ледяное королевство", "style": "snow", "music": "ice", "hazard": "ice",
+    "ambient": { "color": "#040a18", "alpha": 0.52 }, "lightTint": "#7ad8ff",
+    "torch": { "main": "#5ad8ff", "light": "#e8fbff", "dark": "#2a6ab0" },
+    "palette": { "floor": ["#8aa0b8", "#8299b2", "#94aac2"], "mortar": "#4e5e78", "brick": "#7088a8", "wallTop": "#3e4e6c", "pillar": "#b8d8ec", "moss": "#e0f2ff", "mossLight": "#ffffff", "pitDeep": "#08121e", "pitEdge": "#3a5a7a", "rune": "#5ae0ff" },
+    "decor": ["icicle", "icicle", "bones", "rubble"], "arena": "arena_ice"
+  },
+  "necro": {
+    "id": "necro", "name": "Затерянный некрополь", "style": "bones", "music": "necro", "hazard": "curse",
+    "ambient": { "color": "#0a0414", "alpha": 0.62 }, "lightTint": "#b884ff",
+    "torch": { "main": "#b884ff", "light": "#efe0ff", "dark": "#5a2a9a" },
+    "palette": { "floor": ["#3e3846", "#3a3442", "#443c4c"], "mortar": "#1c1822", "brick": "#4c4458", "wallTop": "#26202e", "pillar": "#6a6070", "moss": "#5a2e7a", "mossLight": "#a87ad8", "pitDeep": "#08060c", "pitEdge": "#2a1e36", "rune": "#a86aff" },
+    "decor": ["tombstone", "candles", "skull", "bones"], "arena": "arena_necro"
+  },
+  "crystal": {
+    "id": "crystal", "name": "Кристальный лабиринт", "style": "crystal", "music": "crystal", "hazard": "crystal",
+    "ambient": { "color": "#060818", "alpha": 0.58 }, "lightTint": "#ff8ad8",
+    "torch": { "main": "#ff8ad8", "light": "#ffffff", "dark": "#8a3aa8" },
+    "palette": { "floor": ["#3a4a6a", "#36466a", "#40527a"], "mortar": "#1a2238", "brick": "#4a5a82", "wallTop": "#222a48", "pillar": "#7aa0d0", "moss": "#ff8ad8", "mossLight": "#8af0ff", "pitDeep": "#0a0a20", "pitEdge": "#3a3a7a", "rune": "#ff8ad8" },
+    "decor": ["crystal", "crystal_b", "crystal", "rubble"], "arena": "arena_crystal"
+  },
+  "heart": {
+    "id": "heart", "name": "Сердце башни", "style": "void", "music": "heart", "hazard": "void",
+    "ambient": { "color": "#0a0208", "alpha": 0.6 }, "lightTint": "#ff4a6a",
+    "torch": { "main": "#ff4a6a", "light": "#ffd0d8", "dark": "#8a1030" },
+    "palette": { "floor": ["#2a2236", "#261e32", "#30283e"], "mortar": "#0e0a16", "brick": "#3a2e4a", "wallTop": "#160f20", "pillar": "#5a4a6a", "moss": "#ff4a6a", "mossLight": "#ffcf6a", "pitDeep": "#000000", "pitEdge": "#3a1a4a", "rune": "#ff4a6a" },
+    "decor": ["voidrune", "crystal_b", "rubble", "voidrune"], "arena": "arena_heart"
+  }
+}
